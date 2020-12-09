@@ -1,15 +1,15 @@
 fun main() {
     val login = "Вася"
-    val time = 86000 
+    var time = 298000
 
     println("$login был(а) ")
 
-    when {
-        time <= 60 -> println("только что")
-        time < 60 * 60 -> minute(time)
-        time < 24 * 60 * 60 -> hour(time)
-        time < 24 * 60 * 60 * 2 -> println("сегодня")
-        time < 24 * 60 * 60 * 3 -> println("вчера")
+    when (time){
+        in 0..60 -> println("только что")
+        in 60..60 * 60 -> minute(time)
+        in 60 * 60..24 * 60 * 60 -> hour(time)
+        in 24 * 60 * 60..24 * 60 * 60 * 2 -> println("сегодня")
+        in 24 * 60 * 60 * 2..24 * 60 * 60 * 3 -> println("вчера")
         else -> println("давно")
     }
 }
